@@ -3,7 +3,7 @@ import axios from "axios";
 class Request {
 
     constructor () {
-        axios.defaults.baseURL = 'http://localhost:8000';
+        axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL;
     }
 
     post (url, payload, callback) {
