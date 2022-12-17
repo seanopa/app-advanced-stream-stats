@@ -35,7 +35,7 @@ export default {
       form.append('email', this.auth.email)
       form.append('password', this.auth.password)
 
-      axios.post(' http://localhost:8000/v1/login', form)
+      axios.post('/v1/login', form)
           .then(response => {
             localStorage.setItem('auth', JSON.stringify(response.data))
             this.$router.push('/dashboard')
