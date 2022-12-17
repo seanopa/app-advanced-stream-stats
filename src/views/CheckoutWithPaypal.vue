@@ -21,8 +21,6 @@ export default {
   },
 
   mounted() {
-    const currency_code = 'USD';
-
     this.$http.get('/v1/getClientToken', (response) => {
       // Create a client.
       window.braintree.client.create({
@@ -36,9 +34,8 @@ export default {
         return window.paypal.Buttons({
           createBillingAgreement: () => {
             return paypalCheckoutInstance.createPayment({
-              flow: 'checkout',
+              flow: 'vault',
               amount: this.plan.price,
-              currency: currency_code,
               intent: 'capture'
               // your other createPayment options here
             });
